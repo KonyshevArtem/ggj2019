@@ -11,8 +11,9 @@ public class TimerIconAnimation : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
+        image.fillAmount = 0;
     }
-    
+
     void Update()
     {
         if (isPlaying)
@@ -30,6 +31,8 @@ public class TimerIconAnimation : MonoBehaviour
     public void StartAnim(float seconds)
     {
         currentTime = 0;
+        if (image != null)
+            image.fillAmount = 0;
         totalTime = seconds;
         isPlaying = true;
         gameObject.SetActive(true);
