@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DelayedInteraction : MonoBehaviour
+public class DelayedInteraction : InteractiveMoment
 {
     public float Delay;
     public UnityEvent OnTimerEnd;
@@ -29,5 +29,30 @@ public class DelayedInteraction : MonoBehaviour
                 TimerIconAnimation.StopAnim();
             }
         }
+    }
+
+    public override void Reset()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void AgentBeginInteraction(AIAgent agent, int agentIndex)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void AgentEndInteraction(AIAgent agent, int agentIndex)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void PlayerApproachTarget(Agent agent)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void AiAgentApproachTarget(Agent agent)
+    {
+        throw new System.NotImplementedException();
     }
 }

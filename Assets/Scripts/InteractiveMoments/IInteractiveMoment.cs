@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class InteractiveMoment: MonoBehaviour
+public abstract class InteractiveMoment: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     protected List<AIAgent> InteractingAgents = new List<AIAgent>();
     protected PlayerAgent InteractingPlayer;
+
+    public List<Outline> Outlines;
     
     public bool IsInteracting { get; set; }
     public bool IsComplete { get; set; }
@@ -34,4 +37,15 @@ public abstract class InteractiveMoment: MonoBehaviour
     protected abstract void AgentEndInteraction(AIAgent agent, int agentIndex);
     public abstract void PlayerApproachTarget(Agent agent);
     protected abstract void AiAgentApproachTarget(Agent agent);
+    
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Outlines.ForEach(outline => outline.enabled = true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Outlines.ForEach(outline => outline.enabled = false);
+    }
 }
