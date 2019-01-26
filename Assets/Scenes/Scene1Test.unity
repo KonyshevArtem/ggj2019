@@ -4857,6 +4857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Outlines:
   - {fileID: 1701961020}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 4
   OnTimerEnd:
@@ -5532,6 +5533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Outlines:
   - {fileID: 1891013878}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 4
   OnTimerEnd:
@@ -5916,6 +5918,7 @@ MonoBehaviour:
   Outlines:
   - {fileID: 324630284}
   - {fileID: 301204303}
+  LockTime: 5
   AgentsAmounts: 1
   DestructionTime: 3
   TimerIconAnimation: {fileID: 16219354}
@@ -7176,6 +7179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Outlines:
   - {fileID: 1561532786}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 3.6
   OnTimerEnd:
@@ -7560,6 +7564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Outlines:
   - {fileID: 564501387}
+  LockTime: 0
   AgentsAmounts: 1
   OnAiInteract:
     m_PersistentCalls:
@@ -8082,6 +8087,7 @@ MonoBehaviour:
   - {fileID: 1790562167}
   - {fileID: 804134270}
   - {fileID: 985761909}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 3.6
   OnTimerEnd:
@@ -8589,6 +8595,7 @@ MonoBehaviour:
   - {fileID: 556057700}
   - {fileID: 1622108818}
   - {fileID: 420541626}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 4
   OnTimerEnd:
@@ -8976,6 +8983,7 @@ MonoBehaviour:
   - {fileID: 784936838}
   - {fileID: 1872864753}
   - {fileID: 917398828}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 3.6
   OnTimerEnd:
@@ -9819,6 +9827,7 @@ MonoBehaviour:
   - {fileID: 1847425223}
   - {fileID: 1655485154}
   - {fileID: 790917927}
+  LockTime: 0
   AgentsAmounts: 0
   Delay: 4
   OnTimerEnd:
@@ -10476,6 +10485,7 @@ MonoBehaviour:
   Outlines:
   - {fileID: 1125602030}
   - {fileID: 1267097389}
+  LockTime: 5
   AgentsAmounts: 1
   DestructionTime: 3
   TimerIconAnimation: {fileID: 16219354}

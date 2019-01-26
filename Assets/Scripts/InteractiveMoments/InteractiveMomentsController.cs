@@ -22,7 +22,8 @@ public class InteractiveMomentsController : MonoBehaviour
     private void GenerateRandomEvent()
     {
         InteractiveMoment interactiveMoment = InteractiveMoments
-            .Where(moment => !moment.IsInteracting && !moment.IsComplete && moment.gameObject.activeSelf)
+            .Where(moment =>
+                !moment.IsInteracting && !moment.IsComplete && moment.gameObject.activeSelf && !moment.Locked)
             .OrderBy(moment => Random.Range(0, 100))
             .FirstOrDefault();
         if (interactiveMoment != null)
@@ -32,7 +33,7 @@ public class InteractiveMomentsController : MonoBehaviour
                 .OrderBy(agent => Random.Range(0, 100))
                 .Take(interactiveMoment.AgentsAmounts)
                 .ToList();
-            
+
             if (agents.Count > 0)
                 interactiveMoment.StartInteraction(agents);
         }

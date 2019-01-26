@@ -8,8 +8,7 @@ public abstract class Destruction : InteractiveMoment
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
     public AudioSource RepairSource;
 
-    private ActionTimeout actionTimeout;
-
+    private ActionTimeout actionTimeout, lockTimeout;
 
     protected abstract bool CanInteract();
 
@@ -20,6 +19,9 @@ public abstract class Destruction : InteractiveMoment
         actionTimeout = null;
         OnReset.Invoke();
         InteractingAgents.Clear();
+
+        Locked = true;
+        lockTimeout = new ActionTimeout(LockTime, ReleaseLock);
     }
 
     protected override void AgentBeginInteraction(AIAgent agent, int index)
@@ -67,6 +69,11 @@ public abstract class Destruction : InteractiveMoment
                 TimerIconAnimation.StopAnim();
             }
         }
+
+        if (lockTimeout != null)
+        {
+            lockTimeout.Tick(Time.deltaTime);
+        }
     }
 
     private void DestroyGameObject()
@@ -80,5 +87,12 @@ public abstract class Destruction : InteractiveMoment
     protected override void AgentEndInteraction(AIAgent agent, int index)
     {
         agent.IsInteracting = false;
+    }
+
+
+    private void ReleaseLock()
+    {
+        lockTimeout = null;
+        Locked = false;
     }
 }
