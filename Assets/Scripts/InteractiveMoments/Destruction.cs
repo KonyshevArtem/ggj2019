@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public abstract class Destruction : InteractiveMoment
 {
     public float DestructionTime;
+    public TimerIconAnimation TimerIconAnimation;
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
 
     private ActionTimeout actionTimeout;
@@ -42,6 +43,7 @@ public abstract class Destruction : InteractiveMoment
         {
             IsInteracting = true;
             actionTimeout = new ActionTimeout(3, Reset);
+            TimerIconAnimation.StartAnim(3);
         }
         else
         {
