@@ -11,7 +11,7 @@ public class AIAgent : Agent
     protected override void Start()
     {
         base.Start();
-        actionRepeater = new ActionRepeater(() => Random.Range(3, 3), GoToRandomPoint);
+        actionRepeater = new ActionRepeater(() => Random.Range(3, 7), GoToRandomPoint);
     }
 
     protected override void Update()
