@@ -15,7 +15,9 @@ public abstract class Destruction : InteractiveMoment
     {
         IsInteracting = false;
         IsComplete = false;
+        actionTimeout = null;
         OnReset.Invoke();
+        InteractingAgents.Clear();
     }
 
     protected override void AgentBeginInteraction(AIAgent agent, int index)
@@ -35,11 +37,18 @@ public abstract class Destruction : InteractiveMoment
     public override void PlayerApproachTarget(Agent agent)
     {
         (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached = null;
-        if (IsComplete) return;
-        if (!CanInteract()) return;
         actionTimeout = null;
-        OnPlayerApproach.Invoke();
-        EndInteraction(InteractingAgents);
+        if (IsComplete)
+        {
+            IsInteracting = true;
+            actionTimeout = new ActionTimeout(3, Reset);
+        }
+        else
+        {
+            if (!CanInteract()) return;
+            OnPlayerApproach.Invoke();
+            EndInteraction(InteractingAgents);   
+        }
     }
 
     void Update()
