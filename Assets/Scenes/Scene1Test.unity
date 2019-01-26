@@ -939,7 +939,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0e953034b2e0a4a82ae7cfa907ae29b8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f3f8d18f145d5441aa7060ba684c7347, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1385,6 +1385,7 @@ GameObject:
   - component: {fileID: 324630282}
   - component: {fileID: 324630281}
   - component: {fileID: 324630283}
+  - component: {fileID: 324630284}
   m_Layer: 0
   m_Name: Vase
   m_TagString: Untagged
@@ -1466,6 +1467,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &324630284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324630279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &340259778
 GameObject:
   m_ObjectHideFlags: 0
