@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public abstract class Destruction : InteractiveMoment
 {
     public float DestructionTime;
+    public TimerIconAnimation TimerIconAnimation;
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
 
     private ActionTimeout actionTimeout;
@@ -15,7 +16,9 @@ public abstract class Destruction : InteractiveMoment
     {
         IsInteracting = false;
         IsComplete = false;
+        actionTimeout = null;
         OnReset.Invoke();
+        InteractingAgents.Clear();
     }
 
     protected override void AgentBeginInteraction(AIAgent agent, int index)
@@ -34,18 +37,34 @@ public abstract class Destruction : InteractiveMoment
 
     public override void PlayerApproachTarget(Agent agent)
     {
-        (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached = null;
-        if (IsComplete) return;
-        if (!CanInteract()) return;
+        InteractingPlayer = agent as PlayerAgent;
+        InteractingPlayer.ReachTargetChecker.OnDestinationReached = null;
         actionTimeout = null;
-        OnPlayerApproach.Invoke();
-        EndInteraction(InteractingAgents);
+        if (IsComplete)
+        {
+            IsInteracting = true;
+            actionTimeout = new ActionTimeout(3, Reset);
+            TimerIconAnimation.StartAnim(3);
+        }
+        else
+        {
+            if (!CanInteract()) return;
+            OnPlayerApproach.Invoke();
+            EndInteraction(InteractingAgents);   
+        }
     }
 
     void Update()
     {
         if (actionTimeout != null && IsInteracting)
+        {
             actionTimeout.Tick(Time.deltaTime);
+            if (IsComplete && InteractingPlayer != null && !InteractingPlayer.NavMeshAgent.IsDestinationReached())
+            {
+                actionTimeout = null;
+                TimerIconAnimation.StopAnim();
+            }
+        }
     }
 
     private void DestroyGameObject()
