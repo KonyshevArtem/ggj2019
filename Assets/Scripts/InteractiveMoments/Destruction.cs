@@ -1,14 +1,20 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
-public class Destruction : InteractiveMoment, IPointerClickHandler
+public class Destruction : InteractiveMoment
 {
     public float DestructionTime;
-    public UnityEvent OnDestroy, OnPlayerApproach;
+    public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
 
     private ActionTimeout actionTimeout;
 
+
+    public override void Reset()
+    {
+        IsInteracting = false;
+        IsComplete = false;
+        OnReset.Invoke();
+    }
 
     protected override void AgentBeginInteraction(AIAgent agent, int index)
     {
@@ -20,13 +26,14 @@ public class Destruction : InteractiveMoment, IPointerClickHandler
     private void AiAgentApproachTarget(Agent agent)
     {
         (agent as AIAgent).ReachTargetChecker.OnDestinationReached -= AiAgentApproachTarget;
-        if (IsInteracting)
-            actionTimeout = new ActionTimeout(DestructionTime, DestroyGameObject);
+        if (!IsInteracting) return;
+        actionTimeout = new ActionTimeout(DestructionTime, DestroyGameObject);
     }
 
-    private void PlayerApproachTarget(Agent agent)
+    public void PlayerApproachTarget(Agent agent)
     {
         (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached -= PlayerApproachTarget;
+        if (IsComplete) return;
         OnPlayerApproach.Invoke();
         EndInteraction(InteractingAgents);
     }
@@ -48,10 +55,5 @@ public class Destruction : InteractiveMoment, IPointerClickHandler
     protected override void AgentEndInteraction(AIAgent agent, int index)
     {
         agent.IsInteracting = false;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        PlayerAgent.Instance.ReachTargetChecker.OnDestinationReached += PlayerApproachTarget;
     }
 }

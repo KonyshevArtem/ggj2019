@@ -20,6 +20,7 @@ public class PlayerAgent : Agent
             if (Physics.Raycast(ray, out hit))
             {
                 NavMeshAgent.SetDestination(hit.point);
+                ReachTargetChecker.OnDestinationReached = null;
             }
         }
     }

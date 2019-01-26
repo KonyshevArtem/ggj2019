@@ -26,6 +26,7 @@ public abstract class InteractiveMoment: MonoBehaviour
             AgentEndInteraction(InteractingAgents[i], i);
     }
 
+    public abstract void Reset();
     protected abstract void AgentBeginInteraction(AIAgent agent, int agentIndex);
     protected abstract void AgentEndInteraction(AIAgent agent, int agentIndex);
 }

@@ -29,6 +29,7 @@ public class AIAgent : Agent
     {
         if (IsInteracting) return;
         Vector3 randomPoint = NavigationUtils.GetRandomPointOnNavMesh(transform.position, RandomWalkingRadius);
+        ReachTargetChecker.OnDestinationReached = null;
         GoTo(randomPoint);
     }
 }
