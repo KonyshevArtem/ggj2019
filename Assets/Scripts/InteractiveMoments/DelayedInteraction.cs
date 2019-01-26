@@ -32,6 +32,7 @@ public class DelayedInteraction : InteractiveMoment
             {
                 actionTimeout = null;
                 TimerIconAnimation.StopAnim();
+                InteractSource.Stop();
             }
         }
     }

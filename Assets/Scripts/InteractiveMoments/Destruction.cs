@@ -79,6 +79,7 @@ public class Destruction : InteractiveMoment
             {
                 actionTimeout = null;
                 TimerIconAnimation.StopAnim();
+                RepairSource.Stop();
             }
         }
 
