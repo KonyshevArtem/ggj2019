@@ -25,18 +25,19 @@ public abstract class Destruction : InteractiveMoment
         agent.GoTo(transform.position);
     }
 
-    private void AiAgentApproachTarget(Agent agent)
+    protected override void AiAgentApproachTarget(Agent agent)
     {
         (agent as AIAgent).ReachTargetChecker.OnDestinationReached -= AiAgentApproachTarget;
         if (!IsInteracting) return;
         actionTimeout = new ActionTimeout(DestructionTime, DestroyGameObject);
     }
 
-    public void PlayerApproachTarget(Agent agent)
+    public override void PlayerApproachTarget(Agent agent)
     {
-        (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached -= PlayerApproachTarget;
+        (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached = null;
         if (IsComplete) return;
         if (!CanInteract()) return;
+        actionTimeout = null;
         OnPlayerApproach.Invoke();
         EndInteraction(InteractingAgents);
     }

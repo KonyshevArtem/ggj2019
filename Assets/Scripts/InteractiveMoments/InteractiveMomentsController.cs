@@ -26,6 +26,15 @@ public class InteractiveMomentsController : MonoBehaviour
             .OrderBy(moment => Random.Range(0, 100))
             .FirstOrDefault();
         if (interactiveMoment != null)
-            interactiveMoment.StartInteraction(AiAgents);
+        {
+            List<AIAgent> agents = AiAgents
+                .Where(agent => !agent.IsInteracting)
+                .OrderBy(agent => Random.Range(0, 100))
+                .Take(interactiveMoment.AgentsAmounts)
+                .ToList();
+            
+            if (agents.Count > 0)
+                interactiveMoment.StartInteraction(agents);
+        }
     }
 }

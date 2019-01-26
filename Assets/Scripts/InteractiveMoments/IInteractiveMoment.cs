@@ -24,9 +24,12 @@ public abstract class InteractiveMoment: MonoBehaviour
         IsComplete = true;
         for (int i = 0; i < InteractingAgents.Count; i++)
             AgentEndInteraction(InteractingAgents[i], i);
+        InteractingAgents.Clear();
     }
 
     public abstract void Reset();
     protected abstract void AgentBeginInteraction(AIAgent agent, int agentIndex);
     protected abstract void AgentEndInteraction(AIAgent agent, int agentIndex);
+    public abstract void PlayerApproachTarget(Agent agent);
+    protected abstract void AiAgentApproachTarget(Agent agent);
 }
