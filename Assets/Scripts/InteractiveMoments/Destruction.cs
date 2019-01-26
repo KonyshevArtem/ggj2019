@@ -34,7 +34,7 @@ public class Destruction : InteractiveMoment
         actionTimeout = null;
         OnDestroy.Invoke();
         InteractingAgents.ForEach(agent => agent.GetComponent<HitAnimation>().PlayHitAnimation(gameObject));
-        //CompleteInteraction(InteractingAgents);
+        CompleteInteraction(InteractingAgents);
     }
 
     protected override void AgentEndInteraction(AIAgent agent, int index)
