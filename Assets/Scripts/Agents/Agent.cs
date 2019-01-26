@@ -5,8 +5,8 @@ using UnityEngine.AI;
 public class Agent : MonoBehaviour
 {
     public ReachTargetChecker ReachTargetChecker;
-    
-    protected NavMeshAgent NavMeshAgent;
+
+    public NavMeshAgent NavMeshAgent;
 
     protected virtual void Start()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class InteractiveMoment: MonoBehaviour
 {
     protected List<AIAgent> InteractingAgents = new List<AIAgent>();
+    protected PlayerAgent InteractingPlayer;
     
     public bool IsInteracting { get; set; }
     public bool IsComplete { get; set; }
@@ -25,6 +26,7 @@ public abstract class InteractiveMoment: MonoBehaviour
         for (int i = 0; i < InteractingAgents.Count; i++)
             AgentEndInteraction(InteractingAgents[i], i);
         InteractingAgents.Clear();
+        InteractingPlayer = null;
     }
 
     public abstract void Reset();

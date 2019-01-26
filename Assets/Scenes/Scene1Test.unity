@@ -4435,10 +4435,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1033044686}
         m_MethodName: InitializeInteraction
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2075008525}
+          m_ObjectArgumentAssemblyTypeName: Agent, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5060,10 +5060,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1149646152}
         m_MethodName: InitializeInteraction
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2075008525}
+          m_ObjectArgumentAssemblyTypeName: Agent, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7447,10 +7447,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1704096937}
         m_MethodName: InitializeInteraction
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2075008525}
+          m_ObjectArgumentAssemblyTypeName: Agent, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8386,10 +8386,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2005074492}
         m_MethodName: InitializeInteraction
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2075008525}
+          m_ObjectArgumentAssemblyTypeName: Agent, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

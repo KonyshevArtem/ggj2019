@@ -21,10 +21,7 @@ public class TimerIconAnimation : MonoBehaviour
             image.fillAmount = currentTime / totalTime;
             currentTime += Time.deltaTime;
             if (currentTime >= totalTime)
-            {
-                isPlaying = false;
-                gameObject.SetActive(false);
-            }
+                StopAnim();
         }
     }
 
@@ -36,5 +33,11 @@ public class TimerIconAnimation : MonoBehaviour
         totalTime = seconds;
         isPlaying = true;
         gameObject.SetActive(true);
+    }
+
+    public void StopAnim()
+    {
+        isPlaying = false;
+        gameObject.SetActive(false);
     }
 }

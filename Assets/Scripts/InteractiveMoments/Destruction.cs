@@ -37,7 +37,8 @@ public abstract class Destruction : InteractiveMoment
 
     public override void PlayerApproachTarget(Agent agent)
     {
-        (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached = null;
+        InteractingPlayer = agent as PlayerAgent;
+        InteractingPlayer.ReachTargetChecker.OnDestinationReached = null;
         actionTimeout = null;
         if (IsComplete)
         {
@@ -56,7 +57,14 @@ public abstract class Destruction : InteractiveMoment
     void Update()
     {
         if (actionTimeout != null && IsInteracting)
+        {
             actionTimeout.Tick(Time.deltaTime);
+            if (IsComplete && InteractingPlayer != null && !InteractingPlayer.NavMeshAgent.IsDestinationReached())
+            {
+                actionTimeout = null;
+                TimerIconAnimation.StopAnim();
+            }
+        }
     }
 
     private void DestroyGameObject()
