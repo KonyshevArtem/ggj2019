@@ -705,7 +705,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &301204300
 Transform:
@@ -776,12 +776,13 @@ GameObject:
   - component: {fileID: 324630280}
   - component: {fileID: 324630282}
   - component: {fileID: 324630281}
+  - component: {fileID: 324630283}
   m_Layer: 0
   m_Name: Vase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &324630280
 Transform:
@@ -841,6 +842,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 324630279}
   m_Mesh: {fileID: 4300078, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
+--- !u!54 &324630283
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324630279}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &341308680
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +933,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 341308680}
   m_Mesh: {fileID: 4300048, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
+--- !u!1 &370494443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1630228843916694, guid: c19f9862779bba34492c04952ae48608,
+    type: 2}
+  m_PrefabInternal: {fileID: 1067255041}
 --- !u!1 &405043710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,9 +2295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AgentsAmounts: 1
-  VaseDestructionTime: 3
-  VaseGameObject: {fileID: 324630279}
-  BrokenVaseGameObject: {fileID: 301204299}
+  DestructionTime: 5
+  IntactGameObject: {fileID: 324630279}
+  BrokenGameObject: {fileID: 301204299}
 --- !u!4 &1187202632
 Transform:
   m_ObjectHideFlags: 0
@@ -2643,12 +2664,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1315008138}
   m_Mesh: {fileID: 4300030, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
+--- !u!1 &1327705733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1968982387066392, guid: c19f9862779bba34492c04952ae48608,
+    type: 2}
+  m_PrefabInternal: {fileID: 1067255041}
 --- !u!114 &1327705734 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114272460967961552, guid: c19f9862779bba34492c04952ae48608,
     type: 2}
   m_PrefabInternal: {fileID: 1067255041}
   m_Script: {fileID: 11500000, guid: 7a57592f8ddf84ab9b3ca5bd3da512e1, type: 3}
+--- !u!114 &1327705735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327705733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e1e05a5071407b92de214a91196715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftHand: {fileID: 1518858195}
+  RightHand: {fileID: 370494443}
 --- !u!1 &1363877815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +2840,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374882490}
   m_Mesh: {fileID: 4300044, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
+--- !u!1 &1518858195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648454075952910, guid: c19f9862779bba34492c04952ae48608,
+    type: 2}
+  m_PrefabInternal: {fileID: 1067255041}
 --- !u!1 &1655633159
 GameObject:
   m_ObjectHideFlags: 0
