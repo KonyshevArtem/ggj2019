@@ -1,18 +1,44 @@
-using System.Collections.Generic;
-using UnityEngine.AI;
+using UnityEngine;
 
 public class VaseDestruction : InteractiveMoment
 {
-    public override void Interact(List<AIAgent> agents)
+
+    public float VaseDestructionTime;
+    public GameObject VaseGameObject, BrokenVaseGameObject;
+
+    private ActionTimeout actionTimeout;
+    
+    
+    protected override void AgentBeginInteraction(AIAgent agent, int index)
     {
-        IsInteracting = true;
-        agents.ForEach(agent => agent.GoTo(transform.position));
+        agent.OnDestinationReached += AgentApproachVase;
+        agent.IsInteracting = true;
+        agent.GoTo(transform.position);
     }
 
-    public override void CompleteInteraction(List<AIAgent> agents)
+    private void AgentApproachVase(AIAgent agent)
     {
-        IsInteracting = false;
-        IsComplete = true;
-        agents.ForEach(agent => agent.GoToRandomPoint());
+        agent.OnDestinationReached -= AgentApproachVase;
+        actionTimeout = new ActionTimeout(VaseDestructionTime, DestroyVase);
+    }
+
+    void Update()
+    {
+        if (actionTimeout != null)
+            actionTimeout.Tick(Time.deltaTime);
+    }
+
+    private void DestroyVase()
+    {
+        actionTimeout = null;
+        VaseGameObject.SetActive(false);
+        BrokenVaseGameObject.SetActive(true);
+        CompleteInteraction(InteractingAgents);
+    }
+
+    protected override void AgentEndInteraction(AIAgent agent, int index)
+    {
+        agent.IsInteracting = false;
+        agent.GoToRandomPoint();
     }
 }

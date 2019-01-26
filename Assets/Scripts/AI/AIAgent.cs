@@ -1,10 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIAgent : MonoBehaviour
 {
-    public float randomWalkingRadius;
+    public float RandomWalkingRadius;
+    public bool IsInteracting;
+
+    public Action<AIAgent> OnDestinationReached;
 
     private NavMeshAgent navMeshAgent;
     private ActionRepeater actionRepeater;
@@ -18,6 +23,8 @@ public class AIAgent : MonoBehaviour
     private void Update()
     {
         actionRepeater.Tick(Time.deltaTime);
+        if (NavigationUtils.IsDestinationReached(navMeshAgent) && OnDestinationReached != null)
+            OnDestinationReached(this);
     }
 
     public void GoTo(Vector3 position)
@@ -27,7 +34,10 @@ public class AIAgent : MonoBehaviour
 
     public void GoToRandomPoint()
     {
-        Vector3 randomPoint = NavigationUtils.GetRandomPointOnNavMesh(transform.position, randomWalkingRadius);
-        GoTo(randomPoint);
+        if (!IsInteracting)
+        {
+            Vector3 randomPoint = NavigationUtils.GetRandomPointOnNavMesh(transform.position, RandomWalkingRadius);
+            GoTo(randomPoint);
+        }
     }
 }

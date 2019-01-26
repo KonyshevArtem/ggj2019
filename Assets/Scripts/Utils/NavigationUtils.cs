@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class NavigationUtils
 {
@@ -12,5 +14,15 @@ public class NavigationUtils
         NavMesh.SamplePosition(randomPoint, out hit, radius, 1);
         Vector3 finalPosition = hit.position;
         return finalPosition;
+    }
+
+    public static bool IsDestinationReached(NavMeshAgent navMeshAgent)
+    {
+        if (!navMeshAgent.pathPending)
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+                if (!navMeshAgent.hasPath || Math.Abs(navMeshAgent.velocity.sqrMagnitude) < 0.01f)
+                    return true;
+
+        return false;
     }
 }
