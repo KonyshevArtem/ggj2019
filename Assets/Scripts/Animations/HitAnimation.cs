@@ -9,7 +9,7 @@ public class HitAnimation : MonoBehaviour
     public void PlayHitAnimation(GameObject hitObject)
     {
         Rigidbody hand = ChooseHand(hitObject);
-        hand.AddForceTowards(hitObject.transform, 80);
+        hand.AddForceTowards(hitObject.transform, 100);
     }
 
     private Rigidbody ChooseHand(GameObject hitObject)

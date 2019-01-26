@@ -521,8 +521,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractiveMoments:
-  - {fileID: 1187202631}
   - {fileID: 2145299932}
+  - {fileID: 1187202631}
   AiAgents:
   - {fileID: 1327705734}
 --- !u!4 &146663109
@@ -1876,7 +1876,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4290843901598020, guid: c19f9862779bba34492c04952ae48608, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4290843901598020, guid: c19f9862779bba34492c04952ae48608, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1884,7 +1884,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290843901598020, guid: c19f9862779bba34492c04952ae48608, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.54
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 4290843901598020, guid: c19f9862779bba34492c04952ae48608, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1905,11 +1905,6 @@ Prefab:
     - target: {fileID: 4290843901598020, guid: c19f9862779bba34492c04952ae48608, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 195476066493827994, guid: c19f9862779bba34492c04952ae48608,
-        type: 2}
-      propertyPath: m_StoppingDistance
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c19f9862779bba34492c04952ae48608, type: 2}
@@ -2474,7 +2469,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187202630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1a31e2b232428791e85113490607bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5222db0f7af247f38caa652125459c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AgentsAmounts: 1
@@ -2853,16 +2848,6 @@ Prefab:
     - target: {fileID: 4787688613869394, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 195706713319681996, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d,
-        type: 2}
-      propertyPath: avoidancePriority
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 195706713319681996, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d,
-        type: 2}
-      propertyPath: m_StoppingDistance
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d, type: 2}
@@ -4375,7 +4360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145299931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1a31e2b232428791e85113490607bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5222db0f7af247f38caa652125459c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AgentsAmounts: 1

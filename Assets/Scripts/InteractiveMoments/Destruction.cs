@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Destruction : InteractiveMoment
+public abstract class Destruction : InteractiveMoment
 {
     public float DestructionTime;
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
 
     private ActionTimeout actionTimeout;
 
+
+    protected abstract bool CanInteract();
 
     public override void Reset()
     {
@@ -34,6 +36,7 @@ public class Destruction : InteractiveMoment
     {
         (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached -= PlayerApproachTarget;
         if (IsComplete) return;
+        if (!CanInteract()) return;
         OnPlayerApproach.Invoke();
         EndInteraction(InteractingAgents);
     }
