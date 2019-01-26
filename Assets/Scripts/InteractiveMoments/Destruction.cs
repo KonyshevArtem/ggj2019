@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Destruction : InteractiveMoment
 {
 
     public float DestructionTime;
-    public GameObject IntactGameObject, BrokenGameObject;
-
+    public UnityEvent OnDestroy;
+    
     private ActionTimeout actionTimeout;
     
     
@@ -31,9 +32,8 @@ public class Destruction : InteractiveMoment
     private void DestroyGameObject()
     {
         actionTimeout = null;
-        IntactGameObject.SetActive(false);
-        BrokenGameObject.SetActive(true);
-        InteractingAgents.ForEach(agent => agent.GetComponent<HitAnimation>().PlayHitAnimation(IntactGameObject));
+        OnDestroy.Invoke();
+        InteractingAgents.ForEach(agent => agent.GetComponent<HitAnimation>().PlayHitAnimation(gameObject));
         //CompleteInteraction(InteractingAgents);
     }
 

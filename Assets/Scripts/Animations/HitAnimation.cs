@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HitAnimation : MonoBehaviour
@@ -6,13 +8,14 @@ public class HitAnimation : MonoBehaviour
     
     public void PlayHitAnimation(GameObject hitObject)
     {
-        Rigidbody hand = ChooseHand();
+        Rigidbody hand = ChooseHand(hitObject);
         hand.AddForceTowards(hitObject.transform, 80);
     }
 
-    private Rigidbody ChooseHand()
+    private Rigidbody ChooseHand(GameObject hitObject)
     {
-        int handIndex = Random.Range(0, 2);
-        return handIndex == 0 ? LeftHand : RightHand;
+        return new List<Rigidbody> {LeftHand, RightHand}
+            .OrderByDescending(hand => Vector3.Distance(hitObject.transform.position, hand.transform.position))
+            .FirstOrDefault();
     }
 }
