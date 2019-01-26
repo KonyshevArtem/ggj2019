@@ -3,13 +3,13 @@ using UnityEngine;
 
 public abstract class InteractiveMoment: MonoBehaviour
 {
-    protected List<AIAgent> InteractingAgents;
+    protected List<AIAgent> InteractingAgents = new List<AIAgent>();
     
     public bool IsInteracting { get; set; }
     public bool IsComplete { get; set; }
     public int AgentsAmounts;
 
-    public virtual void Interact(List<AIAgent> agents)
+    public virtual void StartInteraction(List<AIAgent> agents)
     {
         IsInteracting = true;
         InteractingAgents = agents;
@@ -18,7 +18,7 @@ public abstract class InteractiveMoment: MonoBehaviour
     }
     
 
-    public virtual void CompleteInteraction(List<AIAgent> agents)
+    public virtual void EndInteraction(List<AIAgent> agents)
     {
         IsInteracting = false;
         IsComplete = true;

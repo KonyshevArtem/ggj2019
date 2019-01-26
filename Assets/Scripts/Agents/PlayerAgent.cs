@@ -2,6 +2,14 @@
 
 public class PlayerAgent : Agent
 {
+    public static PlayerAgent Instance;
+    
+    protected override void Start()
+    {
+        base.Start();
+        Instance = this;
+    }
+    
     protected override void Update()
     {
         base.Update();

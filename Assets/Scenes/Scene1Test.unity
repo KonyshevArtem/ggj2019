@@ -2392,9 +2392,31 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnClick:
+  OnPlayerApproach:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2075008524}
+        m_MethodName: PickUpItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Vase
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 324630279}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1187202632
@@ -3477,6 +3499,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &2075008524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114406429381086386, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1219378017}
+  m_Script: {fileID: 11500000, guid: cd135d4f39314f268aef6d052bb53d90, type: 3}
 --- !u!1 &2082829655
 GameObject:
   m_ObjectHideFlags: 0

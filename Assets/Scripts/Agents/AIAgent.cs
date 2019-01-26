@@ -11,7 +11,6 @@ public class AIAgent : Agent
     protected override void Start()
     {
         base.Start();
-        ReachTargetChecker = new ReachTargetChecker(this, NavMeshAgent);
         actionRepeater = new ActionRepeater(() => Random.Range(3, 3), GoToRandomPoint);
     }
 
@@ -28,10 +27,8 @@ public class AIAgent : Agent
 
     public void GoToRandomPoint()
     {
-        if (!IsInteracting)
-        {
-            Vector3 randomPoint = NavigationUtils.GetRandomPointOnNavMesh(transform.position, RandomWalkingRadius);
-            GoTo(randomPoint);
-        }
+        if (IsInteracting) return;
+        Vector3 randomPoint = NavigationUtils.GetRandomPointOnNavMesh(transform.position, RandomWalkingRadius);
+        GoTo(randomPoint);
     }
 }
