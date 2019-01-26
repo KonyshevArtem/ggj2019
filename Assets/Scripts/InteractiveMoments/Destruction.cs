@@ -50,6 +50,8 @@ public class Destruction : InteractiveMoment
     {
         InteractingPlayer = agent as PlayerAgent;
         InteractingPlayer.ReachTargetChecker.OnDestinationReached = null;
+        if (InteractingPlayer.GetComponent<ItemsManager>().IsHoldingItem) return;
+        
         actionTimeout = null;
         if (IsComplete)
         {

@@ -35,7 +35,10 @@ public class InteractHandler : InteractiveMoment
 
     public override void PlayerApproachTarget(Agent agent)
     {
-        (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached = null;
+        PlayerAgent playerAgent = agent as PlayerAgent;
+        playerAgent.ReachTargetChecker.OnDestinationReached = null;
+        if (playerAgent.GetComponent<ItemsManager>().IsHoldingItem) return;
+        
         OnPlayerInteract.Invoke();
         EndInteraction(InteractingAgents, true);
         IsComplete = false;
