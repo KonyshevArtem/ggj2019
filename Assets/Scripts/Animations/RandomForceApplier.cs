@@ -13,7 +13,7 @@ public class RandomForceApplier : MonoBehaviour
     void Start()
     {
         rg = GetComponent<Rigidbody>();
-        actionRepeater = new ActionRepeater(0.5f, ApplyForce);
+        actionRepeater = new ActionRepeater(() => 0.5f, ApplyForce);
     }
 
     void Update()
