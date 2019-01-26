@@ -5,7 +5,6 @@ public class DelayedInteraction : InteractiveMoment
 {
     public float Delay;
     public UnityEvent OnTimerEnd;
-    public TimerIconAnimation TimerIconAnimation;
     public AudioSource InteractSource;
 
     private ActionTimeout actionTimeout;

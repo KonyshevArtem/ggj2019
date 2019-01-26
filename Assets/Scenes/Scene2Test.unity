@@ -796,8 +796,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractiveMoments:
-  - {fileID: 1187202631}
+  - {fileID: 2008206890}
   - {fileID: 2145299932}
+  - {fileID: 1187202631}
   - {fileID: 1494007939}
   - {fileID: 916398010}
   AiAgents:
@@ -979,7 +980,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &190368303
 Transform:
@@ -3391,6 +3392,7 @@ MonoBehaviour:
   - {fileID: 1384335647}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -3408,7 +3410,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &540312288
 GameObject:
@@ -4830,12 +4831,13 @@ GameObject:
   - component: {fileID: 743799861}
   - component: {fileID: 743799863}
   - component: {fileID: 743799862}
+  - component: {fileID: 743799864}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &743799861
 Transform:
@@ -4896,6 +4898,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743799860}
   m_Mesh: {fileID: 4300204, guid: f57853af5d5384d8194268f57b329aa0, type: 3}
+--- !u!114 &743799864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 743799860}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &749471649
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,7 +5083,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &760817262
 Transform:
@@ -5822,8 +5841,8 @@ MonoBehaviour:
   - {fileID: 1571792634}
   LockTime: 5
   AgentsAmounts: 1
-  DestructionTime: 5
   TimerIconAnimation: {fileID: 16219354}
+  DestructionTime: 5
   OnDestroy:
     m_PersistentCalls:
       m_Calls:
@@ -6224,6 +6243,7 @@ MonoBehaviour:
   - {fileID: 2055360515}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -6241,7 +6261,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &969511103
 GameObject:
@@ -6711,6 +6730,7 @@ MonoBehaviour:
   - {fileID: 1701961020}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 4
   OnTimerEnd:
     m_PersistentCalls:
@@ -6728,7 +6748,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 223012773}
 --- !u!65 &1033044687
 BoxCollider:
@@ -7204,6 +7223,7 @@ MonoBehaviour:
   - {fileID: 220189674}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -7221,7 +7241,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &1125602025
 GameObject:
@@ -7497,6 +7516,7 @@ MonoBehaviour:
   - {fileID: 1891013878}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 4
   OnTimerEnd:
     m_PersistentCalls:
@@ -7514,7 +7534,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 223012773}
 --- !u!65 &1149646153
 BoxCollider:
@@ -7843,8 +7862,8 @@ MonoBehaviour:
   - {fileID: 301204303}
   LockTime: 5
   AgentsAmounts: 1
-  DestructionTime: 3
   TimerIconAnimation: {fileID: 16219354}
+  DestructionTime: 3
   OnDestroy:
     m_PersistentCalls:
       m_Calls:
@@ -9307,6 +9326,7 @@ MonoBehaviour:
   - {fileID: 1561532786}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -9324,7 +9344,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &1458764226
 GameObject:
@@ -9453,6 +9472,130 @@ Transform:
   m_Father: {fileID: 2145299934}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1461426362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1461426363}
+  - component: {fileID: 1461426364}
+  m_Layer: 0
+  m_Name: MicrowaveAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1461426363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461426362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2008206886}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1461426364
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461426362}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3f892efe339c04a5881833dc09aa0b4e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1494007936
 GameObject:
   m_ObjectHideFlags: 0
@@ -9541,6 +9684,7 @@ MonoBehaviour:
   - {fileID: 564501387}
   LockTime: 5
   AgentsAmounts: 1
+  TimerIconAnimation: {fileID: 0}
   OnAiInteract:
     m_PersistentCalls:
       m_Calls:
@@ -10157,6 +10301,7 @@ MonoBehaviour:
   - {fileID: 1809607884}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -10174,7 +10319,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &1618222391
 GameObject:
@@ -11008,6 +11152,7 @@ MonoBehaviour:
   - {fileID: 420541626}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 4
   OnTimerEnd:
     m_PersistentCalls:
@@ -11025,7 +11170,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 223012773}
 --- !u!65 &1704096938
 BoxCollider:
@@ -11591,6 +11735,7 @@ MonoBehaviour:
   - {fileID: 1158079875}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -11608,7 +11753,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &1809607882
 GameObject:
@@ -12929,6 +13073,7 @@ MonoBehaviour:
   - {fileID: 877814807}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -12946,7 +13091,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &1939066824
 GameObject:
@@ -13140,6 +13284,7 @@ MonoBehaviour:
   - {fileID: 26469970}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 3.6
   OnTimerEnd:
     m_PersistentCalls:
@@ -13157,7 +13302,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 1299962192}
 --- !u!1 &1957885530
 GameObject:
@@ -13667,6 +13811,7 @@ MonoBehaviour:
   - {fileID: 790917927}
   LockTime: 0
   AgentsAmounts: 0
+  TimerIconAnimation: {fileID: 16219354}
   Delay: 4
   OnTimerEnd:
     m_PersistentCalls:
@@ -13684,7 +13829,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  TimerIconAnimation: {fileID: 16219354}
   InteractSource: {fileID: 223012773}
 --- !u!65 &2005074493
 BoxCollider:
@@ -13796,6 +13940,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2008206886}
+  - component: {fileID: 2008206890}
+  - component: {fileID: 2008206889}
+  - component: {fileID: 2008206888}
+  - component: {fileID: 2008206887}
   m_Layer: 0
   m_Name: Microwave
   m_TagString: Untagged
@@ -13814,9 +13962,104 @@ Transform:
   m_LocalScale: {x: 0.5773842, y: 0.6493871, z: 0.64938676}
   m_Children:
   - {fileID: 743799861}
+  - {fileID: 1461426363}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2008206887
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008206885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9767678, y: 0.9000428, z: 0.96459264}
+  m_Center: {x: -0.19558251, y: -0.03700553, z: 0.4822972}
+--- !u!114 &2008206888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008206885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6013e1d4bc646dabb76052f947941f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2008206889}
+        m_MethodName: StartApproaching
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2008206889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008206885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb0f13f19e348aa9776ac7bc192d73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnApproach:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2008206890}
+        m_MethodName: PlayerApproachTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2075008525}
+          m_ObjectArgumentAssemblyTypeName: Agent, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2008206890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008206885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6160767b31b4bfdbd45fd9965e5a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Outlines:
+  - {fileID: 743799864}
+  LockTime: 13
+  AgentsAmounts: 1
+  TimerIconAnimation: {fileID: 16219354}
+  OnAiInteract:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  MicrowaveTime: 13
+  AudioSource: {fileID: 1461426364}
 --- !u!114 &2022142699 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114272460967961552, guid: c19f9862779bba34492c04952ae48608,
@@ -14701,8 +14944,8 @@ MonoBehaviour:
   - {fileID: 1267097389}
   LockTime: 5
   AgentsAmounts: 1
-  DestructionTime: 3
   TimerIconAnimation: {fileID: 16219354}
+  DestructionTime: 3
   OnDestroy:
     m_PersistentCalls:
       m_Calls:

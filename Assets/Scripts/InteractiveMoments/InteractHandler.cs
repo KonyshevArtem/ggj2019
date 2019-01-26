@@ -13,7 +13,7 @@ public class InteractHandler : InteractiveMoment
         IsInteracting = false;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (lockTimeout != null)
             lockTimeout.Tick(Time.deltaTime);
@@ -53,7 +53,7 @@ public class InteractHandler : InteractiveMoment
         SetLock();
     }
 
-    private void SetLock()
+    public void SetLock()
     {
         Locked = true;
         lockTimeout = new ActionTimeout(LockTime, ReleaseLock);

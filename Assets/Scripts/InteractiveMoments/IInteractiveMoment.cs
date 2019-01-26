@@ -15,6 +15,8 @@ public abstract class InteractiveMoment : MonoBehaviour, IPointerEnterHandler, I
 
     public float LockTime;
     public int AgentsAmounts;
+    
+    public TimerIconAnimation TimerIconAnimation;
 
     public virtual void StartInteraction(List<AIAgent> agents)
     {

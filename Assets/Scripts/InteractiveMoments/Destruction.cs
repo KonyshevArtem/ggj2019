@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class Destruction : InteractiveMoment
 {
     public float DestructionTime;
-    public TimerIconAnimation TimerIconAnimation;
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
     public AudioSource RepairSource;
 
