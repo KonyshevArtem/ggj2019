@@ -10,19 +10,13 @@ public class NavigationUtils
         Vector2 insideUnitCircle = Random.insideUnitCircle;
         Vector3 randomPoint = new Vector3(insideUnitCircle.x, originPoint.y, insideUnitCircle.y) * radius;
         randomPoint += originPoint;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomPoint, out hit, radius, 1);
-        Vector3 finalPosition = hit.position;
-        return finalPosition;
+        return GetNearestPointOnNavMesh(randomPoint, radius);
     }
 
-    public static bool IsDestinationReached(NavMeshAgent navMeshAgent)
+    public static Vector3 GetNearestPointOnNavMesh(Vector3 pointOutsideNavMesh, float radius)
     {
-        if (!navMeshAgent.pathPending)
-            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-                if (!navMeshAgent.hasPath || Math.Abs(navMeshAgent.velocity.sqrMagnitude) < 0.01f)
-                    return true;
-
-        return false;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(pointOutsideNavMesh, out hit, radius, 1);
+        return hit.position;
     }
 }

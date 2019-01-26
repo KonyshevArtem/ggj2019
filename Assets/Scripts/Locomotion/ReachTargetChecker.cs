@@ -17,7 +17,7 @@ public class ReachTargetChecker
 
     public void Update()
     {
-        if (NavigationUtils.IsDestinationReached(navMeshAgent) && OnDestinationReached != null)
+        if (navMeshAgent.IsDestinationReached() && OnDestinationReached != null)
             OnDestinationReached(agent);
     }
 }
