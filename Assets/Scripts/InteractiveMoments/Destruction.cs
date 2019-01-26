@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Destruction : InteractiveMoment
+public class Destruction : InteractiveMoment
 {
     public float DestructionTime;
     public TimerIconAnimation TimerIconAnimation;
@@ -10,7 +10,10 @@ public abstract class Destruction : InteractiveMoment
 
     private ActionTimeout actionTimeout, lockTimeout;
 
-    protected abstract bool CanInteract();
+    protected virtual bool CanInteract()
+    {
+        return true;
+    }
 
     public override void Reset()
     {
@@ -20,6 +23,11 @@ public abstract class Destruction : InteractiveMoment
         OnReset.Invoke();
         InteractingAgents.Clear();
 
+        SetLock();
+    }
+
+    private void SetLock()
+    {
         Locked = true;
         lockTimeout = new ActionTimeout(LockTime, ReleaseLock);
     }
@@ -47,14 +55,16 @@ public abstract class Destruction : InteractiveMoment
         {
             IsInteracting = true;
             actionTimeout = new ActionTimeout(4, Reset);
-            RepairSource.Play();
+            if (RepairSource != null)
+                RepairSource.Play();
             TimerIconAnimation.StartAnim(4);
         }
         else
         {
             if (!CanInteract()) return;
             OnPlayerApproach.Invoke();
-            EndInteraction(InteractingAgents);   
+            EndInteraction(InteractingAgents, false);
+            SetLock();
         }
     }
 
@@ -81,7 +91,7 @@ public abstract class Destruction : InteractiveMoment
         actionTimeout = null;
         OnDestroy.Invoke();
         InteractingAgents.ForEach(agent => agent.GetComponent<HitAnimation>().PlayHitAnimation(gameObject));
-        EndInteraction(InteractingAgents);
+        EndInteraction(InteractingAgents, true);
     }
 
     protected override void AgentEndInteraction(AIAgent agent, int index)

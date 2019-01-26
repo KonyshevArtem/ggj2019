@@ -25,10 +25,10 @@ public abstract class InteractiveMoment : MonoBehaviour, IPointerEnterHandler, I
     }
 
 
-    public virtual void EndInteraction(List<AIAgent> agents)
+    public virtual void EndInteraction(List<AIAgent> agents, bool isComplete)
     {
         IsInteracting = false;
-        IsComplete = true;
+        IsComplete = isComplete;
         for (int i = 0; i < InteractingAgents.Count; i++)
             AgentEndInteraction(InteractingAgents[i], i);
         InteractingAgents.Clear();

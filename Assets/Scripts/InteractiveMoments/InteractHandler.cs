@@ -37,7 +37,7 @@ public class InteractHandler : InteractiveMoment
     {
         (agent as PlayerAgent).ReachTargetChecker.OnDestinationReached = null;
         OnPlayerInteract.Invoke();
-        EndInteraction(InteractingAgents);
+        EndInteraction(InteractingAgents, true);
         IsComplete = false;
         SetLock();
     }
@@ -45,7 +45,7 @@ public class InteractHandler : InteractiveMoment
     protected override void AiAgentApproachTarget(Agent agent)
     {
         (agent as AIAgent).ReachTargetChecker.OnDestinationReached = null;
-        EndInteraction(InteractingAgents);
+        EndInteraction(InteractingAgents, true);
         IsComplete = false;
         SetLock();
     }
