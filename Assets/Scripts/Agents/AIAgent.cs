@@ -1,35 +1,29 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class AIAgent : MonoBehaviour
+public class AIAgent : Agent
 {
     public float RandomWalkingRadius;
     public bool IsInteracting;
-
-    public Action<AIAgent> OnDestinationReached;
-
-    private NavMeshAgent navMeshAgent;
+    
     private ActionRepeater actionRepeater;
 
-    void Start()
+    protected override void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        base.Start();
+        ReachTargetChecker = new ReachTargetChecker(this, NavMeshAgent);
         actionRepeater = new ActionRepeater(() => Random.Range(3, 3), GoToRandomPoint);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         actionRepeater.Tick(Time.deltaTime);
-        if (NavigationUtils.IsDestinationReached(navMeshAgent) && OnDestinationReached != null)
-            OnDestinationReached(this);
     }
 
     public void GoTo(Vector3 position)
     {
-        navMeshAgent.SetDestination(position);
+        NavMeshAgent.SetDestination(position);
     }
 
     public void GoToRandomPoint()

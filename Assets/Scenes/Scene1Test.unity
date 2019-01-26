@@ -933,11 +933,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 341308680}
   m_Mesh: {fileID: 4300048, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
---- !u!54 &370494448 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 54536301895305268, guid: c19f9862779bba34492c04952ae48608,
-    type: 2}
-  m_PrefabInternal: {fileID: 1067255041}
 --- !u!1 &405043710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AgentsAmounts: 1
-  DestructionTime: 2
+  DestructionTime: 3
   OnDestroy:
     m_PersistentCalls:
       m_Calls:
@@ -2395,6 +2390,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1187202632
@@ -2462,11 +2462,6 @@ Prefab:
     - target: {fileID: 4787688613869394, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 195706713319681996, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e43ef8e0414e5d94dbfccb4bd71f6f6d, type: 2}
@@ -2775,30 +2770,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1315008138}
   m_Mesh: {fileID: 4300030, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
---- !u!1 &1327705733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1968982387066392, guid: c19f9862779bba34492c04952ae48608,
-    type: 2}
-  m_PrefabInternal: {fileID: 1067255041}
 --- !u!114 &1327705734 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114272460967961552, guid: c19f9862779bba34492c04952ae48608,
     type: 2}
   m_PrefabInternal: {fileID: 1067255041}
   m_Script: {fileID: 11500000, guid: 7a57592f8ddf84ab9b3ca5bd3da512e1, type: 3}
---- !u!114 &1327705735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1327705733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57e1e05a5071407b92de214a91196715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftHand: {fileID: 370494448}
-  RightHand: {fileID: 1518858200}
 --- !u!1 &1363877815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,11 +2928,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374882490}
   m_Mesh: {fileID: 4300044, guid: 4ce05615e8b0da94d800d61d16ab5ebe, type: 3}
---- !u!54 &1518858200 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 54474989265956714, guid: c19f9862779bba34492c04952ae48608,
-    type: 2}
-  m_PrefabInternal: {fileID: 1067255041}
 --- !u!1 &1655633159
 GameObject:
   m_ObjectHideFlags: 0
