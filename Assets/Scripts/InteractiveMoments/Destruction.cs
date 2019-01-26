@@ -6,6 +6,7 @@ public abstract class Destruction : InteractiveMoment
     public float DestructionTime;
     public TimerIconAnimation TimerIconAnimation;
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
+    public AudioSource RepairSource;
 
     private ActionTimeout actionTimeout;
 
@@ -43,8 +44,9 @@ public abstract class Destruction : InteractiveMoment
         if (IsComplete)
         {
             IsInteracting = true;
-            actionTimeout = new ActionTimeout(3, Reset);
-            TimerIconAnimation.StartAnim(3);
+            actionTimeout = new ActionTimeout(4, Reset);
+            RepairSource.Play();
+            TimerIconAnimation.StartAnim(4);
         }
         else
         {
