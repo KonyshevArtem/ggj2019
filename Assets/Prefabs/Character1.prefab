@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 4290843901598020}
   - component: {fileID: 195476066493827994}
   - component: {fileID: 114272460967961552}
+  - component: {fileID: 114904683869436340}
   m_Layer: 0
   m_Name: Character1
   m_TagString: Untagged
@@ -1121,6 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomWalkingRadius: 8
+  IsInteracting: 0
 --- !u!114 &114313163668919768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1145,6 +1147,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxForce: 10
+--- !u!114 &114904683869436340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968982387066392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e1e05a5071407b92de214a91196715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftHand: {fileID: 54536301895305268}
+  RightHand: {fileID: 54474989265956714}
 --- !u!135 &135218701176247046
 SphereCollider:
   m_ObjectHideFlags: 1
