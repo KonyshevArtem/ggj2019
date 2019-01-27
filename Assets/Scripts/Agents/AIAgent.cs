@@ -5,6 +5,7 @@ public class AIAgent : Agent
 {
     public float RandomWalkingRadius;
     public bool IsInteracting;
+    public LocomotionMap LocomotionMap;
     
     private ActionRepeater actionRepeater;
 
@@ -28,8 +29,6 @@ public class AIAgent : Agent
     public void GoToRandomPoint()
     {
         if (IsInteracting) return;
-        Vector3 randomPoint = NavigationUtils.GetRandomPointOnNavMesh(transform.position, RandomWalkingRadius);
-        ReachTargetChecker.OnDestinationReached = null;
-        GoTo(randomPoint);
+        GoTo(LocomotionMap.GetRandomPoint());
     }
 }
