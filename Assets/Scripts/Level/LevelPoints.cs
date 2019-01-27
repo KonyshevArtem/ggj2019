@@ -9,6 +9,10 @@ public class LevelPoints : MonoBehaviour
 
     public int NeighboursCurrentPoints, PizdecCurrentPoints;
 
+    public float TotalLevelTime, CurrentLevelTime;
+
+    public bool IsGameFinished;
+    
 
     private void Start()
     {
@@ -20,16 +24,32 @@ public class LevelPoints : MonoBehaviour
     private void Update()
     {
         NeighboursBar.Value = (int) ((float) NeighboursCurrentPoints / NeighboursMaxPoints * 100);
-        PizdecBar.Value = (int) ((float) PizdecCurrentPoints / PizdecMaxPoints * 100);       
+        PizdecBar.Value = (int) ((float) PizdecCurrentPoints / PizdecMaxPoints * 100);
+
+        CurrentLevelTime += Time.deltaTime;
+        if (CurrentLevelTime >= TotalLevelTime && !IsGameFinished)
+        {
+            IsGameFinished = true;
+        }
+
+        if (NeighboursCurrentPoints >= NeighboursMaxPoints && !IsGameFinished)
+        {
+            IsGameFinished = true;
+        }
     }
 
     public void AddPizdecPoints(int amount)
     {
-        PizdecCurrentPoints += amount;
+        PizdecCurrentPoints = Mathf.Clamp(PizdecCurrentPoints + amount, 0, PizdecMaxPoints);
     }
 
     public void AddNeighboursPoints(int amount)
     {
-        NeighboursCurrentPoints += amount;
+        NeighboursCurrentPoints = Mathf.Clamp(NeighboursCurrentPoints + amount, 0, NeighboursMaxPoints);
+    }
+
+    private void OnGUI()
+    {
+        GUILayout.Label((TotalLevelTime - CurrentLevelTime).ToString());
     }
 }

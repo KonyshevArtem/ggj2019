@@ -5678,6 +5678,7 @@ MonoBehaviour:
   - 0.3
   - 0.4
   - 0.5
+  NeighboursPointsVolume: ffffffff01000000020000000300000004000000
 --- !u!1 &668014936
 GameObject:
   m_ObjectHideFlags: 0
@@ -14014,6 +14015,8 @@ MonoBehaviour:
   PizdecBar: {fileID: 1898722417}
   NeighboursCurrentPoints: 0
   PizdecCurrentPoints: 0
+  TotalLevelTime: 0
+  CurrentLevelTime: 0
 --- !u!4 &1749882093
 Transform:
   m_ObjectHideFlags: 0

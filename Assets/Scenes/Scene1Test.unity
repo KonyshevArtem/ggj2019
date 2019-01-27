@@ -3479,6 +3479,7 @@ MonoBehaviour:
   - 0.3
   - 0.4
   - 0.5
+  NeighboursPointsVolume: ffffffff01000000020000000300000004000000
 --- !u!1 &660241319
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,6 +6918,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   RepairSource: {fileID: 929471472}
+  PizdecPoints: 0
 --- !u!4 &1187202632
 Transform:
   m_ObjectHideFlags: 0
@@ -9463,6 +9465,8 @@ MonoBehaviour:
   PizdecBar: {fileID: 529998345}
   NeighboursCurrentPoints: 0
   PizdecCurrentPoints: 0
+  TotalLevelTime: 90
+  CurrentLevelTime: 0
 --- !u!4 &1669523548
 Transform:
   m_ObjectHideFlags: 0
@@ -11721,7 +11725,7 @@ Camera:
   m_GameObject: {fileID: 2055253799}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -12300,6 +12304,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   RepairSource: {fileID: 1458764227}
+  PizdecPoints: 0
 --- !u!65 &2145299933
 BoxCollider:
   m_ObjectHideFlags: 0

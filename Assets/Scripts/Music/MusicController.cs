@@ -10,10 +10,18 @@ public class MusicController : MonoBehaviour
 
     private int volumeLevelId;
     private int currentClipId;
+
+    public List<int> NeighboursPointsVolume;
+
+    private ActionRepeater actionRepeater;
     
     void Start()
     {
         LoadClipsById(0);
+        actionRepeater = new ActionRepeater(() => 1, () =>
+        {
+            LevelPoints.Instance.AddNeighboursPoints(NeighboursPointsVolume[volumeLevelId]);
+        });
     }
 
     void Update()
@@ -23,6 +31,7 @@ public class MusicController : MonoBehaviour
             currentClipId = (currentClipId + 1) % MusicClips.Count;
             LoadClipsById(currentClipId); 
         }
+        actionRepeater.Tick(Time.deltaTime);
     }
 
     private void LoadClipsById(int clipId)
@@ -39,7 +48,7 @@ public class MusicController : MonoBehaviour
 
     public void DecrementVolume()
     {
-        volumeLevelId = Mathf.Max(volumeLevelId - 1, 0);
+        volumeLevelId = 0;
         MusicAudioSource.volume = VolumeLevels[volumeLevelId];
     }
 }
