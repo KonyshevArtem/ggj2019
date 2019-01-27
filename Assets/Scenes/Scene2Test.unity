@@ -15470,6 +15470,7 @@ GameObject:
   - component: {fileID: 2008206889}
   - component: {fileID: 2008206888}
   - component: {fileID: 2008206887}
+  - component: {fileID: 2008206891}
   m_Layer: 0
   m_Name: Microwave
   m_TagString: Untagged
@@ -15576,7 +15577,18 @@ MonoBehaviour:
   TimerIconAnimation: {fileID: 16219354}
   OnAiInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2008206891}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Open
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnPlayerInteract:
@@ -15586,6 +15598,24 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   MicrowaveTime: 13
   AudioSource: {fileID: 1461426364}
+--- !u!95 &2008206891
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008206885}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93d27d48f1c5749e4a3f2f1b2a757cb3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2018904619
 GameObject:
   m_ObjectHideFlags: 0
