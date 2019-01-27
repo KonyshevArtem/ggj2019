@@ -20,6 +20,8 @@ public class LevelPoints : MonoBehaviour
     public GameObject FbiScreen, ParentsLoseScreen, ParentsWinScreen;
     private ActionTimeout fbiTimeout;
 
+    public GameObject TutorialWindow;
+
 
     private void Start()
     {
@@ -27,6 +29,17 @@ public class LevelPoints : MonoBehaviour
         PizdecCurrentPoints = PizdecStartPoints;
         NeighboursCurrentPoints = NeighboursStartPoints;
         PickleRick.Value = 5;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Time.timeScale = 0;
+            TutorialWindow.SetActive(true);
+        }
+    }
+
+    public void FinishTutorial()
+    {
+        TutorialWindow.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void Update()
