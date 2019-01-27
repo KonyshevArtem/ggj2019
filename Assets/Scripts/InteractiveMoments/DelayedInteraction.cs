@@ -17,7 +17,11 @@ public class DelayedInteraction : InteractiveMoment
         if (playerAgent.GetComponent<ItemsManager>().IsHoldingItem) return;
 
         interactingAgent = playerAgent;
-        actionTimeout = new ActionTimeout(Delay, () => OnTimerEnd.Invoke());
+        actionTimeout = new ActionTimeout(Delay, () =>
+        {
+            actionTimeout = null;
+            OnTimerEnd.Invoke();
+        });
         TimerIconAnimation.StartAnim(Delay);
         InteractSource.Play();
     }
