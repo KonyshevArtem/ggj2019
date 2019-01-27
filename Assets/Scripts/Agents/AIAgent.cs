@@ -6,8 +6,10 @@ public class AIAgent : Agent
     public float RandomWalkingRadius;
     public bool IsInteracting;
     public LocomotionMap LocomotionMap;
-    
+
     private ActionRepeater actionRepeater;
+
+    public Renderer renderer;
 
     protected override void Start()
     {
@@ -19,6 +21,8 @@ public class AIAgent : Agent
     {
         base.Update();
         actionRepeater.Tick(Time.deltaTime);
+
+        renderer.material.color = IsInteracting ? Color.red : Color.white;
     }
 
     public void GoTo(Vector3 position)

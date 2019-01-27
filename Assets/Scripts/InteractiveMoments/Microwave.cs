@@ -9,6 +9,8 @@ public class Microwave : InteractHandler
     private ActionTimeout microwaveActionTimeout, repairActionTimeout;
     private PlayerAgent interactingPlayer;
 
+    public GameObject IntactModel, BrokenModel;
+
     public override void PlayerApproachTarget(Agent agent)
     {
         interactingPlayer = agent as PlayerAgent;        
@@ -72,5 +74,8 @@ public class Microwave : InteractHandler
                 TimerIconAnimation.StopAnim();
             }
         }
+        
+        IntactModel.SetActive(!IsComplete);
+        BrokenModel.SetActive(IsComplete);
     }
 }
