@@ -6,6 +6,7 @@ public class FillBar : MonoBehaviour
     public GameObject Highlight;
     private RectTransform _fillRectTransform;
     private RectTransform _highlightRectTransform;
+    [Range(0, 100)]
     public int Value = 0;
     private void UpdateFill()
     {

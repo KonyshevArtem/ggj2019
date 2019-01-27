@@ -29,7 +29,7 @@ public class InteractiveMomentsController : MonoBehaviour
         if (interactiveMoment != null)
         {
             List<AIAgent> agents = AiAgents
-                .Where(agent => !agent.IsInteracting)
+                .Where(agent => agent.gameObject.activeSelf && !agent.IsInteracting)
                 .OrderBy(agent => Random.Range(0, 100))
                 .Take(interactiveMoment.AgentsAmounts)
                 .ToList();

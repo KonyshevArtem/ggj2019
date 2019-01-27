@@ -6,6 +6,7 @@ public class Destruction : InteractiveMoment
     public float DestructionTime;
     public UnityEvent OnDestroy, OnPlayerApproach, OnReset;
     public AudioSource RepairSource;
+    public int PizdecPoints;
 
     private ActionTimeout actionTimeout, lockTimeout;
 
@@ -55,7 +56,11 @@ public class Destruction : InteractiveMoment
         if (IsComplete)
         {
             IsInteracting = true;
-            actionTimeout = new ActionTimeout(4, Reset);
+            actionTimeout = new ActionTimeout(4, () =>
+            {
+                LevelPoints.Instance.AddPizdecPoints(-PizdecPoints);
+                Reset();
+            });
             if (RepairSource != null)
                 RepairSource.Play();
             TimerIconAnimation.StartAnim(4);

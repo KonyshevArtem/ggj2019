@@ -4,6 +4,7 @@ public class Microwave : InteractHandler
 {
     public float MicrowaveTime;
     public AudioSource AudioSource;
+    public int PizdecPoints;
 
     private ActionTimeout microwaveActionTimeout, repairActionTimeout;
     private PlayerAgent interactingPlayer;
@@ -34,6 +35,7 @@ public class Microwave : InteractHandler
                 TimerIconAnimation.StartAnim(8);
                 repairActionTimeout = new ActionTimeout(8, () =>
                 {
+                    LevelPoints.Instance.AddPizdecPoints(-PizdecPoints);
                     repairActionTimeout = null;
                     Reset();
                 });
@@ -50,6 +52,7 @@ public class Microwave : InteractHandler
 
     private void Explode()
     {
+        LevelPoints.Instance.AddPizdecPoints(PizdecPoints);
         microwaveActionTimeout = null;
         AudioSource.Stop();
         IsComplete = true;
