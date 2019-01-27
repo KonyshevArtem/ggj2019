@@ -13,6 +13,8 @@ public class LevelPoints : MonoBehaviour
     public float TotalLevelTime, CurrentLevelTime;
 
     public bool IsGameFinished;
+
+    public MusicController MusicController;
     
 
     private void Start()
@@ -25,6 +27,20 @@ public class LevelPoints : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+            NeighboursCurrentPoints = NeighboursMaxPoints;
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            CurrentLevelTime = TotalLevelTime;
+            PizdecCurrentPoints = PizdecMaxPoints;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            CurrentLevelTime = TotalLevelTime;
+            PizdecCurrentPoints = 0;
+        }
+        
+        
         NeighboursBar.Value = (int) ((float) NeighboursCurrentPoints / NeighboursMaxPoints * 100);
         PizdecBar.Value = (int) ((float) PizdecCurrentPoints / PizdecMaxPoints * 100);
 
@@ -42,13 +58,32 @@ public class LevelPoints : MonoBehaviour
         if (CurrentLevelTime >= TotalLevelTime && !IsGameFinished)
         {
             IsGameFinished = true;
-            
+            if ((float) PizdecCurrentPoints / PizdecMaxPoints > 0.5)
+                ParentLose();
+            else
+                Win();
         }
 
         if (NeighboursCurrentPoints >= NeighboursMaxPoints && !IsGameFinished)
         {
             IsGameFinished = true;
+            NeighboursLose();
         }
+    }
+
+    public void Win()
+    {
+        
+    }
+
+    public void ParentLose()
+    {
+        
+    }
+
+    public void NeighboursLose()
+    {
+        MusicController.NeighboursLose();
     }
 
     public void AddPizdecPoints(int amount)

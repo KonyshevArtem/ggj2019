@@ -21,21 +21,24 @@ public class InteractiveMomentsController : MonoBehaviour
 
     private void GenerateRandomEvent()
     {
-        InteractiveMoment interactiveMoment = InteractiveMoments
-            .Where(moment =>
-                !moment.IsInteracting && !moment.IsComplete && moment.gameObject.activeSelf && !moment.Locked)
-            .OrderBy(moment => Random.Range(0, 100))
-            .FirstOrDefault();
-        if (interactiveMoment != null)
+        if (!LevelPoints.Instance.IsGameFinished)
         {
-            List<AIAgent> agents = AiAgents
-                .Where(agent => agent.gameObject.activeSelf && !agent.IsInteracting)
-                .OrderBy(agent => Random.Range(0, 100))
-                .Take(interactiveMoment.AgentsAmounts)
-                .ToList();
+            InteractiveMoment interactiveMoment = InteractiveMoments
+                .Where(moment =>
+                    !moment.IsInteracting && !moment.IsComplete && moment.gameObject.activeSelf && !moment.Locked)
+                .OrderBy(moment => Random.Range(0, 100))
+                .FirstOrDefault();
+            if (interactiveMoment != null)
+            {
+                List<AIAgent> agents = AiAgents
+                    .Where(agent => agent.gameObject.activeSelf && !agent.IsInteracting)
+                    .OrderBy(agent => Random.Range(0, 100))
+                    .Take(interactiveMoment.AgentsAmounts)
+                    .ToList();
 
-            if (agents.Count > 0)
-                interactiveMoment.StartInteraction(agents);
+                if (agents.Count > 0)
+                    interactiveMoment.StartInteraction(agents);
+            }
         }
     }
 }

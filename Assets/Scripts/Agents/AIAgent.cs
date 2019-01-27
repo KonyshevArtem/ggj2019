@@ -28,7 +28,7 @@ public class AIAgent : Agent
 
     public void GoToRandomPoint()
     {
-        if (IsInteracting) return;
+        if (IsInteracting || LevelPoints.Instance.IsGameFinished) return;
         GoTo(LocomotionMap.GetRandomPoint());
     }
 }

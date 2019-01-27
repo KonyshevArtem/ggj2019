@@ -13,6 +13,8 @@ public class MusicController : MonoBehaviour
 
     public List<int> NeighboursPointsVolume;
 
+    public AudioSource NeighboursLoseSource;
+
     private ActionRepeater actionRepeater;
     
     void Start()
@@ -50,5 +52,11 @@ public class MusicController : MonoBehaviour
     {
         volumeLevelId = 0;
         MusicAudioSource.volume = VolumeLevels[volumeLevelId];
+    }
+
+    public void NeighboursLose()
+    {
+        MusicAudioSource.Stop();
+        NeighboursLoseSource.Play();
     }
 }
