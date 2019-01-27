@@ -10,26 +10,34 @@ public class Microwave : InteractHandler
 
     public override void PlayerApproachTarget(Agent agent)
     {
-        bool isComplete = IsComplete;
-        base.PlayerApproachTarget(agent);
         interactingPlayer = agent as PlayerAgent;        
         if (interactingPlayer.GetComponent<ItemsManager>().IsHoldingItem) return;
         
-        IsComplete = isComplete;
-        if (!IsComplete)
+        if (!IsInteracting)
         {
-            interactingPlayer = null;
-            microwaveActionTimeout = null;
-            AudioSource.Stop();
-        }
-        else
-        {
-            TimerIconAnimation.StartAnim(8);
-            repairActionTimeout = new ActionTimeout(8, () =>
+            bool isComplete = IsComplete;
+            base.PlayerApproachTarget(agent);
+        
+            IsComplete = isComplete;
+            if (!IsComplete)
             {
-                repairActionTimeout = null;
-                Reset();
-            });
+                if (microwaveActionTimeout != null)
+                {
+                    interactingPlayer = null;
+                    microwaveActionTimeout = null;
+                    AudioSource.Stop();
+                    OnAiInteract.Invoke();
+                }
+            }
+            else
+            {
+                TimerIconAnimation.StartAnim(8);
+                repairActionTimeout = new ActionTimeout(8, () =>
+                {
+                    repairActionTimeout = null;
+                    Reset();
+                });
+            }
         }
     }
 
