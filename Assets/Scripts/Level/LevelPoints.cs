@@ -6,6 +6,7 @@ public class LevelPoints : MonoBehaviour
     
     public int NeighboursMaxPoints, PizdecMaxPoints, NeighboursStartPoints, PizdecStartPoints;
     public FillBar NeighboursBar, PizdecBar;
+    public PickleRick PickleRick;
 
     public int NeighboursCurrentPoints, PizdecCurrentPoints;
 
@@ -19,6 +20,7 @@ public class LevelPoints : MonoBehaviour
         Instance = this;
         PizdecCurrentPoints = PizdecStartPoints;
         NeighboursCurrentPoints = NeighboursStartPoints;
+        PickleRick.Value = 5;
     }
 
     private void Update()
@@ -27,9 +29,20 @@ public class LevelPoints : MonoBehaviour
         PizdecBar.Value = (int) ((float) PizdecCurrentPoints / PizdecMaxPoints * 100);
 
         CurrentLevelTime += Time.deltaTime;
+
+        if (CurrentLevelTime >= TotalLevelTime)
+        {
+            PickleRick.Value = 0;
+        }
+        else
+        {
+            PickleRick.Value = (int) (Mathf.Max(0, TotalLevelTime - CurrentLevelTime) / TotalLevelTime * 5) + 1; 
+        }
+        
         if (CurrentLevelTime >= TotalLevelTime && !IsGameFinished)
         {
             IsGameFinished = true;
+            
         }
 
         if (NeighboursCurrentPoints >= NeighboursMaxPoints && !IsGameFinished)
@@ -46,10 +59,5 @@ public class LevelPoints : MonoBehaviour
     public void AddNeighboursPoints(int amount)
     {
         NeighboursCurrentPoints = Mathf.Clamp(NeighboursCurrentPoints + amount, 0, NeighboursMaxPoints);
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.Label((TotalLevelTime - CurrentLevelTime).ToString());
     }
 }
