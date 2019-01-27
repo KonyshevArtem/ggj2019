@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButton : MonoBehaviour
 {
@@ -20,4 +21,14 @@ public class MainMenuButton : MonoBehaviour
 	    RedLayer.gameObject.transform.position = BlackLayer.gameObject.transform.position - shift;
 	    BlueLayer.gameObject.transform.position = BlackLayer.gameObject.transform.position + shift;
     }
+
+	public void LoadNextScene()
+	{
+		SceneManager.LoadScene(1);
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
+	}
 }

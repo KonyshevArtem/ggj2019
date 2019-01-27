@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelPoints : MonoBehaviour
 {
     public static LevelPoints Instance;
-    
+
     public int NeighboursMaxPoints, PizdecMaxPoints, NeighboursStartPoints, PizdecStartPoints;
     public FillBar NeighboursBar, PizdecBar;
     public PickleRick PickleRick;
@@ -15,7 +16,10 @@ public class LevelPoints : MonoBehaviour
     public bool IsGameFinished;
 
     public MusicController MusicController;
-    
+
+    public GameObject FbiScreen, ParentsLoseScreen, ParentsWinScreen;
+    private ActionTimeout fbiTimeout;
+
 
     private void Start()
     {
@@ -34,13 +38,14 @@ public class LevelPoints : MonoBehaviour
             CurrentLevelTime = TotalLevelTime;
             PizdecCurrentPoints = PizdecMaxPoints;
         }
+
         if (Input.GetKeyDown(KeyCode.J))
         {
             CurrentLevelTime = TotalLevelTime;
             PizdecCurrentPoints = 0;
         }
-        
-        
+
+
         NeighboursBar.Value = (int) ((float) NeighboursCurrentPoints / NeighboursMaxPoints * 100);
         PizdecBar.Value = (int) ((float) PizdecCurrentPoints / PizdecMaxPoints * 100);
 
@@ -52,9 +57,9 @@ public class LevelPoints : MonoBehaviour
         }
         else
         {
-            PickleRick.Value = (int) (Mathf.Max(0, TotalLevelTime - CurrentLevelTime) / TotalLevelTime * 5) + 1; 
+            PickleRick.Value = (int) (Mathf.Max(0, TotalLevelTime - CurrentLevelTime) / TotalLevelTime * 5) + 1;
         }
-        
+
         if (CurrentLevelTime >= TotalLevelTime && !IsGameFinished)
         {
             IsGameFinished = true;
@@ -69,21 +74,31 @@ public class LevelPoints : MonoBehaviour
             IsGameFinished = true;
             NeighboursLose();
         }
+
+        if (fbiTimeout != null)
+        {
+            fbiTimeout.Tick(Time.deltaTime);
+        }
     }
 
     public void Win()
     {
-        
+        ParentsWinScreen.SetActive(true);
     }
 
     public void ParentLose()
     {
-        
+        ParentsLoseScreen.SetActive(true);
     }
 
     public void NeighboursLose()
     {
         MusicController.NeighboursLose();
+        fbiTimeout = new ActionTimeout(3, () =>
+        {
+            fbiTimeout = null;
+            FbiScreen.SetActive(true);
+        });
     }
 
     public void AddPizdecPoints(int amount)
@@ -94,5 +109,17 @@ public class LevelPoints : MonoBehaviour
     public void AddNeighboursPoints(int amount)
     {
         NeighboursCurrentPoints = Mathf.Clamp(NeighboursCurrentPoints + amount, 0, NeighboursMaxPoints);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextScene()
+    {
+        int sceneIndex = Mathf.Max(1,
+            (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
+        SceneManager.LoadScene(sceneIndex);
     }
 }
